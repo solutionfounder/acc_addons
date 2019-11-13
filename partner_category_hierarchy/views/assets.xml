@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_common" inherit_id="web.assets_common">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/partner_category_hierarchy/static/src/js/tour.js"/>
+        </xpath>
+    </template>
+
+</odoo>

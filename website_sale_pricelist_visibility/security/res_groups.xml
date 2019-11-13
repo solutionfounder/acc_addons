@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id="group_hcategory_pricelist" model="res.groups">
+        <field name="name">Manage pricelist visibility by partner categories</field>
+        <field name="implied_ids" eval="[(4, ref('product.group_pricelist_item')), (4, ref('partner_category_hierarchy.group_hcategory'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+    </record>
+
+</odoo>

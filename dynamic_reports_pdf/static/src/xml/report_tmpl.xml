@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-extend="report_financial">
+        <t t-jquery="div.main_report" t-operation="before">
+            <div  style="margin-top: 10px;margin-left: 53px;" class="button_print_rep btn btn-primary btn-sm o_invoice_new oe_kanban_action oe_kanban_action_button">
+                <span>Print PDF</span>
+            </div>
+            <div style="margin-top: 10px;margin-left: 5px;" class="button_print_xls_rep btn btn-primary btn-sm o_invoice_new oe_kanban_action oe_kanban_action_button">
+                <span>Print Excel</span>
+            </div>
+        </t>
+    </t>
+    <t t-extend="report_financial_horizontal">
+        <t t-jquery="div.main_report" t-operation="before">
+            <div  style="margin-top: 10px;margin-left: 53px;" class="button_print_rep btn btn-primary btn-sm o_invoice_new oe_kanban_action oe_kanban_action_button">
+                <span>Print PDF</span>
+            </div>
+            <div style="margin-top: 10px;margin-left: 5px;" class="button_print_xls_rep btn btn-primary btn-sm o_invoice_new oe_kanban_action oe_kanban_action_button">
+                <span>Print Excel</span>
+            </div>
+        </t>
+    </t>
+</templates>

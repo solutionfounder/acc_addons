@@ -1,0 +1,165 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<odoo>
+    <data>
+        <template id="report_financial_document">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure" style="padding-bottom:50px;"/>
+                    <div class="row mt64 mb16">
+                        <!--VERTICAL-->
+                        <table class="table table-condensed"
+                               t-if="datas['report_type']=='vertical'"
+                               name="report_line_table">
+                            <thead>
+                                <tr>
+                                    <th class="text-left item_name"></th>
+                                    <th class="text-right">
+                                        <span t-if="datas['debit_credit']==True">
+                                            Debit
+                                        </span>
+                                    </th>
+                                    <th class="text-right">
+                                        <span t-if="datas['debit_credit']==True">
+                                            Credit
+                                        </span>
+                                    </th>
+                                    <th t-if="datas['debit_credit']==True"
+                                        class="text-right">
+                                        <span t-if="datas['debit_credit']==True">
+                                            Balance
+                                        </span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="report_tbody">
+                                <tr t-foreach="datas['data']" t-as="variable">
+                                    <td class="text-left">
+                                        <span t-esc="variable['child_col_name']"
+                                            t-att-style="'padding-left:'+variable['style']"
+                                        />
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="variable['child_col_bal_1']"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="variable['child_col_bal_2']"/>
+                                    </td>
+                                    <td t-if="datas['debit_credit']==True"
+                                        class="text-right">
+                                        <span t-esc="variable['child_col_bal_3']"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!--HORIZONTAL-->
+                        <div t-if="datas['report_type']=='horizontal'">
+                            <table class="table table-condensed"
+                                   t-if="datas['report_type']=='horizontal'"
+                                   style="width:50% !important;float:left;margin-top:1px;"
+                                   name="report_table_left">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align:left !important;"
+                                            class="text-left item_name"></th>
+                                        <th class="text-right">
+                                            <span t-if="datas['debit_credit']==True">
+                                                Debit
+                                            </span>
+                                        </th>
+                                        <th class="text-right">
+                                            <span t-if="datas['debit_credit']==True">
+                                                Credit
+                                            </span>
+                                        </th>
+                                        <th t-if="datas['debit_credit']==True"
+                                            class="text-right">
+                                            <span t-if="datas['debit_credit']==True">
+                                                Balance
+                                            </span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="report_tbody">
+                                    <tr t-foreach="datas['t_body_left']" t-as="variable">
+                                        <td style="text-align:left !important;" class="text-left">
+                                            <span t-esc="variable['child_col_name']"
+                                                t-att-style="'padding-left:'+variable['style']"
+                                            />
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="variable['child_col_bal_1']"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="variable['child_col_bal_2']"/>
+                                        </td>
+                                        <td t-if="datas['debit_credit']==True"
+                                            class="text-right">
+                                            <span t-esc="variable['child_col_bal_3']"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!--RIGHT-->
+
+                            <table class="table table-condensed"
+                                   t-if="datas['report_type']=='horizontal'"
+                                   style="width:50% !important;float:left;margin-top:1px;"
+                                   name="report_table_left">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align:left !important;"
+                                            class="text-left item_name"></th>
+                                        <th class="text-right">
+                                            <span t-if="datas['debit_credit']==True">
+                                                Debit
+                                            </span>
+                                        </th>
+                                        <th class="text-right">
+                                            <span t-if="datas['debit_credit']==True">
+                                                Credit
+                                            </span>
+                                        </th>
+                                        <th t-if="datas['debit_credit']==True"
+                                            class="text-right">
+                                            <span t-if="datas['debit_credit']==True">
+                                                Balance
+                                            </span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="report_tbody">
+                                    <tr t-foreach="datas['t_body_right']" t-as="variable">
+                                        <td style="text-align:left !important;" class="text-left">
+                                            <span t-esc="variable['child_col_name']"
+                                                t-att-style="'padding-left:'+variable['style']"
+                                            />
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="variable['child_col_bal_1']"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="variable['child_col_bal_2']"/>
+                                        </td>
+                                        <td t-if="datas['debit_credit']==True"
+                                            class="text-right">
+                                            <span t-esc="variable['child_col_bal_3']"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_financial">
+            <t t-call="web.html_container">
+                <t t-call="dynamic_reports_pdf.report_financial_document" />
+            </t>
+        </template>
+    </data>
+</odoo>

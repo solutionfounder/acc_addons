@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id="view_partner_hcategory_form" model="ir.ui.view">
+        <field name="name">res.partner.hcategory.form</field>
+        <field name="model">res.partner.hcategory</field>
+        <field name="inherit_id" ref="partner_category_hierarchy.view_partner_hcategory_form"/>
+        <field name="groups_id" eval="[(4, ref('website_sale_pricelist_visibility.group_hcategory_pricelist'))]"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Pricelist Visibility">
+                    <p><br/>The following Pricelists will be visible only to partners from this Partner Category and its children recursively.</p>
+                    <field name="pricelist_ids" nolabel="1" domain="[('id', '!=', %(website_sale_pricelist_visibility.default_pricelist)d )]">
+                        <tree>
+                            <field name="name"/>
+                        </tree>
+                    </field>
+                    <p>Pricelists that have been inherited from parent Partner Categories.</p>
+                    <field name="inherited_pricelist_ids" nolabel="1" readonly="1" domain="[('id', '!=', %(website_sale_pricelist_visibility.default_pricelist)d )]">
+                        <tree>
+                            <field name="name"/>
+                        </tree>
+                    </field>
+                    <p>If you are not sure what Pricelists specific partner will be able to see, you can check it on partner's form, "Pricelists" tab.</p>
+                </page>
+            </notebook>
+        </field>
+    </record>
+    
+</odoo>

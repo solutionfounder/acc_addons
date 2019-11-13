@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_partner_hcategory,access_res_partner_hcategory,model_res_partner_hcategory,,1,0,0,0
+access_res_partner_hcategory_full,access_res_partner_hcategory_full,model_res_partner_hcategory,partner_category_hierarchy.group_hcategory,1,1,1,1

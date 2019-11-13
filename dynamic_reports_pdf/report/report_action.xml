@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="account_financial_report" model="ir.actions.report">
+        <field name="name">account_financial_report</field>
+        <field name="model">new.accounting.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">dynamic_reports_pdf.report_financial</field>
+        <!--<field name="print_report_name">'Invoice - %s' % (object.name)</field>-->
+        <field name="print_report_name">'Financial_report'</field>
+    </record>
+
+    <record id="account_financial_report_xlsx" model="ir.actions.report">
+        <field name="name">account_financial_report</field>
+        <field name="model">new.accounting.report</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">dynamic_reports_pdf.report_financial.xlsx</field>
+        <field name="report_file">dynamic_reports_pdf.report_financial.xlsx</field>
+        <field name="print_report_name">'Invoice - %s' % (object.name)</field>
+        <!--<field name="print_report_name">'Test'</field>-->
+        <field name="print_report_name">'Financial_report'</field>
+    </record>
+</odoo>
