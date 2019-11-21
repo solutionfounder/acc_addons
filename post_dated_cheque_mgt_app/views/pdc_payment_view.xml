@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+    <!-- PDC Payment Form -->
+	<record id="pdc_payment_form_view" model="ir.ui.view">
+			<field name="name">PDC Payment History</field>
+			<field name="model">pdc.account.payment</field>
+			<field name="arch" type="xml">
+				<form name="PDC Payment">
+					<header>
+						<button name="collect_cash_button" string="Collect Cash" type="object" class="oe_highlight" attrs="{'invisible': [('state', '=', 'collect_cash')]}"/>
+						<field name="state" widget="statusbar" statusbar_visible="posted,collect_cash"/>
+					</header>
+					<sheet>
+						<label for="name" string="PDC Payment Number"/>
+                        <div class="oe_title" readonly="1">
+                            <h1><field name="name" readonly="1"/></h1>
+                        </div>
+						<group>
+						<group>
+							<field name="payment_type" readonly="1"/>
+							<field name="partner_type" readonly="1"/>
+							<field name="partner_id" readonly="1"/>
+							<field name="amount" widget='monetary' readonly="1"/>
+							<field name="journal_id" readonly="1"/>
+							<field name="payment_date" readonly="1"/>
+							<field name="agent" readonly="1"/>
+						</group>
+						<group>
+							<field name="due_date" readonly="1"/>
+							<field name="cheque_reference" readonly="1"/>
+							<field name="bank" readonly="1"/>
+							<field name="communication"  string="Invoice Reference" readonly="1"/>
+							<field name="pdc_account_id" readonly="1"/>
+							<field name="account_move_id" readonly="1"/>
+						</group>
+						</group>
+		            </sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="pdc_payment_tree_view" model="ir.ui.view">
+			<field name="name">PDC Payment List</field>
+			<field name="model">pdc.account.payment</field>
+			<field name="arch" type="xml">
+				<tree name="pdc_payment_tree">
+					<field name="name"/>
+					<field name="payment_date"/>
+					<field name="journal_id"/>
+					<field name="partner_id"/>
+					<field name="amount" widget='monetary'/>
+					<field name="cheque_reference"/>
+					<field name="agent"/>
+					<field name="bank"/>
+					<field name="state"/>
+				</tree>
+			</field>
+		</record>
+
+      <record id="action_pdc_payment_filter" model="ir.ui.view">
+          <field name="name">pdc.payment.search</field>
+          <field name="model">pdc.account.payment</field>
+          <field name="arch" type="xml">
+            <search string="PDC Payments">
+                <filter string="Posted" name="posted" domain="[('state','=','posted')]" help = "Posted PDC Payment"/>
+                <separator/>
+                <filter string="Cash Collected" name="collected_cash" domain="[('state','=','collect_cash')]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Customers" name="customer" context="{'group_by':'partner_id'}"/>
+                    <separator/>
+                    <filter string="Status" name="status" context="{'group_by':'state'}"/>
+                </group>
+
+            </search>
+          </field>
+      </record>
+
+		<record id="action_pdc_payment" model="ir.actions.act_window">
+	        <field name="name">PDC Payments</field>
+	        <field name="res_model">pdc.account.payment</field>
+	        <field name="view_type">form</field>
+	        <field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem id="menu_pdc_payment" 
+	 			name="PDC Payments" 
+	 			action="action_pdc_payment"
+	            parent="account.menu_finance_receivables"
+	            groups="post_dated_cheque_mgt_app.group_pdc_payment"/>
+
+	</data>
+</odoo>

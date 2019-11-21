@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<!-- pdc wizard -->
+		<record id="pdc_payment_wizard_view_id" model="ir.ui.view">
+		<field name="name">PDC Payment Wizard View</field>
+		<field name="model">pdc.account.payment</field>
+		<field name="arch" type="xml">
+			<form name="Payment Detail">
+				<h2>PDC Payment</h2>
+					<group col="4" colspan="2">
+						<field name="partner_id" readonly="True"/>
+						<field name="due_date"/>
+						<field name="amount" widget='monetary'/>
+						<field name="communication" readonly="True"/>
+						<field name="journal_id"/>
+						<field name="cheque_reference" required="1"/>
+						<field name="payment_date"/>
+						<field name="agent" required="1"/>
+						<field name="bank" required="1"/>
+					</group>
+					
+					<footer>
+						<button name="validate_pdc_payment" string="Validate" type="object" class="btn-primary" icon="fa-check"/>
+						<button string="Cancel" class="btn-secondary" special="cancel"/>
+					</footer>
+			</form>
+		</field>
+		</record>
+
+		<record id="pdc_payment_wizard_action_new" model="ir.actions.act_window">
+			<field name="name">PDC Payments</field>
+			<field name="res_model">pdc.account.payment</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="pdc_payment_wizard_view_id" />
+			<field name="target">new</field>
+		</record>
+
+	</data>
+</odoo>

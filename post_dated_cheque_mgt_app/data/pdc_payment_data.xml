@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="1">
+        <record id="pdc_payment_data_01" model="account.account">
+            <field name="name">PDC Payment</field>
+            <field name="code">100502</field>
+            <field name="user_type_id" ref="account.data_account_type_other_income"/>
+        </record>
+
+    </data>
+</odoo>

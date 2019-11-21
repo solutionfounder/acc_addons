@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+    <report id="pdc_report_action"
+            model="pdc.account.payment"
+            string="PDC Payment Report "
+            report_type="qweb-pdf"
+            name="post_dated_cheque_mgt_app.pdc_template_report"
+            paperformat="paperformat_pdc_report"
+            />
+    </data>
+</odoo>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="report.paperformat" id="paperformat_pdc_report">
+        <field name="name">paperformat.pdc.payment</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_width">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">40</field>
+        <field name="margin_right">5</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">30</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <template id="pdc_template_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+        <div class="page">
+            <div class="oe_structure"/>
+            <br/><br/>
+                <div style="color:#0095B6; background-color:#f1dff5;">
+                    <strong><h2 class="text-center"><strong>PDC Payment Report</strong></h2></strong>
+                </div>
+
+                <div class="row mt32 mb32">
+
+                    <div class="col-auto mw-500 mb-3" style = "width : 25%">
+                        <strong>Report Date:</strong>
+                        <br/>
+                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>  
+                    </div>
+                </div>
+        
+                <table class="table table-condensed table-bordered" style="width: 100%">
+                    <thead style="background-color:#aaedf8;">
+                        <th class="text-center" style="width: 11%">Payment Number</th>
+                        <th class="text-center" style="width: 11%">Payment Date</th>
+                        <th class="text-center" style="width: 11%">Customer</th>
+                        <th class="text-center" style="width: 11%">Payment Amount</th>
+                        <th class="text-center" style="width: 11%">Cheque Reference</th>
+                        <th class="text-center" style="width: 11%">Bank</th>
+                        <th class="text-center" style="width: 11%">Journal</th>
+                        <th class="text-center" style="width: 11%">Invoice / Bill</th>
+                        <th class="text-center" style="width: 11%">Due Date</th>
+                        <th class="text-center" style="width: 11%">Status</th>
+                    </thead>
+                    <tbody>
+                         <t t-foreach="docs" t-as="doc">  
+                             <tr>
+                                <td>
+                                    <span t-esc="doc.name"/>
+                                </td>
+                                <td>
+                                    <span t-esc="doc.payment_date"/>
+                                </td>
+                                <td>
+                                   <span t-esc="doc.partner_id.name"/>
+                                </td>
+                                <td>
+                                   <span t-esc="doc.amount"/>
+                                </td>
+                                <td>
+                                   <span t-esc="doc.cheque_reference"/>
+                                </td>
+                                <td>
+                                   <span t-esc="doc.bank"/>
+                                </td>
+                                <td>
+                                   <span t-esc="doc.journal_id.name"/>
+                                </td>
+                                <td>
+                                   <span t-esc="doc.communication"/>
+                                </td>
+                                <td>
+                                   <span t-esc="doc.due_date"/>
+                                </td>
+                                <td>
+                                    <t t-if="doc.state == 'posted'">
+                                        <span>Posted</span>
+                                    </t>
+                                    <t t-if="doc.state == 'collect_cash'">
+                                        <span>Collect Cash</span>
+                                    </t>                                
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+        </div>
+        <div class="footer">
+            <div class="row text-center" style="border-top: 1px solid black;">
+                <div class="col-xs-3 col-xs-offset-9 text-right">
+                    <ul class="list-inline" style="margin-top:10px;">
+                        <li>
+                            Page : <span class="page"/>
+                        </li>
+                        <li>/</li>
+                        <li>
+                            <span class="topage"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </t>
+</t>
+</template>
+
+</odoo>
