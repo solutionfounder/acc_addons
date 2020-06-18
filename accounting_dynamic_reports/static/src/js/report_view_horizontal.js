@@ -41,7 +41,7 @@ odoo.define('accounting_dynamic_reports.MyReportHorizontal', function (require) 
                     }
                 }
                 if (current_line) {
-                    for (var i in journal_items) {
+                    for (var i in category) {
                         if (journal_items[i] && (journal_items[i]['p_id'] == line)) {
                             childs.push(journal_items[i]);
                         }
@@ -103,7 +103,7 @@ odoo.define('accounting_dynamic_reports.MyReportHorizontal', function (require) 
                 }
             }
             else if (record['type'] == 'account') {
-                for (var i in journal_items) {
+                for (var i in category) {
                     if (journal_items[i] && (journal_items[i]['p_id'] == id)) {
                         childs.push(journal_items[i]);
                     }

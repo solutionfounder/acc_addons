@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import re
+import re, logging
 
 from odoo import api, models, fields, _
 
@@ -42,7 +42,7 @@ class AccountCommonReportNew(models.TransientModel):
     date_to = fields.Date(string='End Date')
     debit_credit = fields.Boolean(
         string='Display Debit/Credit Columns',
-        default=True,
+        default=False,
         help="This option allows you to"
              " get more details about the "
              "way your balances are computed."
@@ -216,7 +216,7 @@ class AccountCommonReportNew(models.TransientModel):
                     # new_r_name = new_r_name.replace(" ", "-") + "-"
                     vals = {
                         'account': account.id,
-                        'a_id': account.code + re.sub('[^0-9a-zA-Z]+', 'acnt',
+                        'a_id': account.code + re.sub('[^0-9a-zA-Z]+', '',
                                                       account.name) + str(
                             account.id),
                         'name': account.code + '-' + account.name,
@@ -306,6 +306,7 @@ class AccountCommonReportNew(models.TransientModel):
             ['date_from', 'enable_filter', 'debit_credit', 'date_to',
              'account_report_id', 'target_move', 'view_format',
              'company_id'])[0]
+        print("data", data)
         used_context = self._build_contexts(data)
         data['form']['used_context'] = dict(
             used_context,

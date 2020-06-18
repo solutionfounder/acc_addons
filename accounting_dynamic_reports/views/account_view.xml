@@ -17,15 +17,13 @@
                         <field name="style_overwrite"/>
                     </group>
                     <notebook
-                            attrs="{'invisible': [('type','not in',['accounts','account_sum','account_type', 'account_report'])]}">
+                            attrs="{'invisible': [('type','not in',['accounts','account_type', 'account_report'])]}">
                         <page string="Report">
                             <group>
                                 <field name="display_detail"
                                        attrs="{'invisible': [('type','not in',['accounts','account_type'])]}"/>
                                 <field name="account_report_id"
                                        attrs="{'invisible': [('type', '!=', 'account_report')]}"/>
-                                <field name="view_account_id"
-                                       attrs="{'invisible': [('type', '!=', 'account_sum')]}"/>
                             </group>
                             <field name="account_ids"
                                    attrs="{'invisible': [('type', '!=', 'accounts')]}"/>

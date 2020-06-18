@@ -54,7 +54,7 @@ odoo.define('accounting_dynamic_reports.MyReportWidget', function (require) {
                     }
                 }
                 if(current_line){
-                    for (var i in journal_items){
+                    for (var i in category){
                         if(journal_items[i] && (journal_items[i]['p_id'] == line)){
                             childs.push(journal_items[i]);
                         }
@@ -74,6 +74,7 @@ odoo.define('accounting_dynamic_reports.MyReportWidget', function (require) {
             var line = $(e.target).data('id');
             // based on this line_type, we will decide that we are clicked on journal items or not
             var line_type = $(e.target).data('type');
+
             if (line_type == 'journal_item'){
                 for (var j in self.journal_items){
                     if(self.journal_items[j]['id'] == line){
@@ -100,8 +101,6 @@ odoo.define('accounting_dynamic_reports.MyReportWidget', function (require) {
             var temp_str = "";
             var attr = "";
             var rec_id = this.get_parent_selector(parent);
-
-
             attr = " id="+String(rec_id)+" data-id=" + String(rec_id) + " data-type=" + parent['type'];
             temp_str += "<tr class='child_row' data-id="+String(rec_id)+" id="+String(rec_id)+">";
             /*need to apply the styles based on the type
@@ -127,7 +126,7 @@ odoo.define('accounting_dynamic_reports.MyReportWidget', function (require) {
                 }
             }
             else if (record['type'] == 'account'){
-                for (var i in journal_items){
+                for (var i in category){
                     if(journal_items[i] && (journal_items[i]['p_id'] == id)){
                         childs.push(journal_items[i]);
                     }
@@ -285,9 +284,8 @@ odoo.define('accounting_dynamic_reports.MyReportWidget', function (require) {
                 // second click on childs
                 else if(parent && parent['fold'] == true){
                     tmp += self.find_parent_row(parent);
-                    self.remove_childs(parent);
                     $("tr#"+parent_selector).replaceWith(tmp);
-
+                    self.remove_childs(parent);
                 }
             }
             return;

@@ -2,7 +2,7 @@
 
 {
     'name': 'Dynamic Financial Reports',
-    'version': '12.0.1.1.0',
+    'version': '12.0.1.0.0',
     'category': 'Accounting',
     'summary': """Dynamic Balance Sheet & Profit & Loss Report with drill down – Community Edition""",
     'description': "This module creates dynamic Balance Sheet and P & L Dynamic financial report, financial report"

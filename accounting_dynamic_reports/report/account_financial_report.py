@@ -25,12 +25,6 @@ class AccountFinancialReport(models.Model):
                 level = report.parent_id.level + 1
             report.level = level
 
-    @api.model
-    def _get_account_view_domain(self):
-        ids = self.env.ref('chart_of_accounts_with_parent.account_type_view').ids
-        return [('user_type_id', '=', ids)]
-
-
     def _get_children_by_order(self):
         """returns a recordset of all the children computed recursively,
          and sorted by sequence. Ready for the printing"""
@@ -52,7 +46,6 @@ class AccountFinancialReport(models.Model):
     level = fields.Integer(compute='_get_level', string='Level', store=True)
     type = fields.Selection(
         [('sum', 'View'),
-         ('account_sum', 'Account View'),
          ('accounts', 'Accounts'),
          ('account_type', 'Account Type'),
          ('account_report', 'Report Value')],
@@ -107,8 +100,3 @@ class AccountFinancialReport(models.Model):
              " automatic formatting, it will be computed"
              " based on the financial reports hierarchy "
              "(auto-computed field 'level').")
-    view_account_id = fields.Many2one(
-        'account.account',
-        'View Account',
-        domain=_get_account_view_domain
-    )
