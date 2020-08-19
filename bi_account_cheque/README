@@ -1,0 +1,18 @@
+Date : 10 July
+Version : 12.0.0.2
+Point : Solve issue for multi company.
+
+Version : 12.0.0.3
+	-- cashed accounting entry issue solved
+
+Version : 12.0.0.4
+	-- incoming cheque accounting entry issue solved
+
+Version : 12.0.0.5
+	-- incoming cheque list view status updated.
+
+Version : 12.0.0.6
+	-- incoming cheque status button updated.
+==>12.0.0.7 :fixed issue of partner at transfer and journal .
+==>12.0.0.8 :improved module for invoice and payment.
+==>12.0.0.9 : improved modules for reconcile payment.

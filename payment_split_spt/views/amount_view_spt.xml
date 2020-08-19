@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="amount_form_view_spt" model="ir.ui.view">
+            <field name="name">amount.form.view.spt</field>
+            <field name="model">amount.spt</field>
+            <field name="arch" type="xml">
+                <form string="Payment Amount">
+                    <sheet>
+                        <group>
+                            <group string="Establishement">
+                                <field name="amount"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="journal_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="amount_tree_view_spt" model="ir.ui.view">
+            <field name="name">amount.tree.view.spt</field>
+            <field name="model">amount.spt</field>
+            <field name="arch" type="xml">
+                <tree string="Payment Amount">
+                    <field name="amount"/>
+                    <field name="journal_id"/>
+
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- /////////////////////////////////////////////////// -->
+        <record id="action_amount_spt" model="ir.actions.act_window">
+            <field name="name">Payment Amount</field>
+            <field name="res_model">amount.spt</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+
+        </record>
+
+
+        <!-- ////////////////////////////////////////////////////////////// -->
+
+        <!-- <menuitem id="menu_amount_details_spt" sequence="2" name="Payment Amount" action="action_amount_spt" parent="account.menu_finance"/> -->
+
+    </data>
+</odoo>

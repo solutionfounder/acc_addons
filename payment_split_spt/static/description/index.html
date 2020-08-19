@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Odoo Easy Invoice Payment Split</title>
+    <meta name="title" content="Odoo Easy Invoice Payment Split">
+    <meta name="description" content="Odoo Easy Invoice Payment Split.Make multiple payments with an easy interface for your invoices.">
+    <meta name="keywords" content="odoo payment multi-accounts, Write Off in to multiple accounts at Payment, multiple invoice payment, Register payment In Odoo, odoo invoice payment, odoo website payment, multi invoice payment, Multiple accounts at Payment, multi-payment, customer payment, confirm payment, odoo multiple invoice payment, to multiple accounts at payment, Payment methods, customer payment my account, multiple accounts at payment, odoo payment to multiple, payments in odoo accounting, accounts write off payment, accounts at payment, Multiple Invoice Payment, pay all invoice together, odoo invoices partial payment">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="1 days">
+    <meta name="author" content="SnepTech">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<!-- odoo description page css -->
+
+
+
+
+<body>
+    <style>
+        .nav-tabs>li>a.nav-link.active,
+        .nav.nav-tabs>li>a.active,
+        .nav-pills>li>a.nav-link.active,
+        .nav.nav-pills>li>a.active {
+            background-color: #feaf2e !important;
+            color: #fff !important;
+        }
+
+        .screenshot_title {
+            margin: 0;
+            font-size: 15px;
+            background: #fff;
+            padding: 15px;
+            color: #feaf2e;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+            font-weight: 600;
+            border: 1px solid #ddd;
+        }
+
+        .img-border {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+        }
+    </style>
+    <div class="container">
+        <section class="oe_container">
+            <div class="oe_row oe_spaced">
+                <div class="oe_span12 text-center">
+                    <h2 class="oe_slogan">Odoo Easy Invoice Payment Split</h2>
+                    <p class=" oe_slogan text-muted">Make multiple payment with easy interface for your invoices.</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <div class="s_panel_video" data-video-id="4ysiFl7zIMk?rel=0" style="cursor:pointer;">
+                    <img class="img-fluid s_tooltip_tabs_tooltip_image s_figure_link pb0" src="split_payment_yt.png"
+                        alt="List View Manager Cover Video" style="max-width:100%;border: 10px solid #f1f1f1;border-radius: 20px;">
+                </div>
+            </div>
+
+        </section>
+        <!-- <section class="oe_container"> -->
+        <div class="row py-4 px-3">
+            <div class="w-100" style="padding: 64px 0px;margin:80px 0px 20px 0px;background: #f3f0f0;border-radius: 10px;">
+                <ul role="tablist" class="nav nav-pills justify-content-center" data-tabs="tabs" id="pills-tab" style="border: none;">
+                    <li class="nav-item mr-1 mb-3" style="border-radius: 5px;background: white;">
+                        <a id="pills-features-tab" data-toggle="pill" href="#pills-features" role="tab" aria-controls="pills-features"
+                            aria-selected="true" class="nav-link active" style="text-transform: uppercase;font-weight: 600;font-size: 15px;letter-spacing: 1px;padding: 10px 20px;border-top-left-radius: 5px;border-top-right-radius: 5px;color: #feaf2e;border: 4px solid #feaf2e;">Features
+                        </a>
+                    </li>
+                    <li class="nav-item mr-1 mb-3" style="border-radius: 5px;background: white;">
+                        <a id="pills-screenshots-tab" data-toggle="pill" href="#pills-screenshots" role="tab"
+                            aria-controls="pills-screenshots" aria-selected="true" class="nav-link" style="text-transform: uppercase;font-weight: 600;font-size: 15px;letter-spacing: 1px;padding: 10px 20px;border-top-left-radius: 5px;border-top-right-radius: 5px;color: #feaf2e;border: 4px solid #feaf2e;">Screenshots
+                        </a>
+                    </li>
+                 <!--    <li class="nav-item mr-1 mb-3" style="border-radius: 5px;background: white;">
+                        <a class="nav-link" id="pills-config-tab" data-toggle="pill" href="#pills-config" role="tab"
+                            aria-controls="pills-config" aria-selected="false" style="text-transform: uppercase;font-weight: 600;font-size: 15px;letter-spacing: 1px;padding: 10px 20px;border-top-left-radius: 5px;border-top-right-radius: 5px;color: #feaf2e;border: 4px solid #feaf2e;">Configuration
+                        </a>
+                    </li> -->
+                    <li class="nav-item mb-3" style="border-radius: 5px;background: white;">
+                        <a class="nav-link" id="pills-faq-tab" data-toggle="pill" href="#pills-faq" role="tab"
+                            aria-controls="pills-faq" aria-selected="false" style="text-transform: uppercase;font-weight: 600;font-size: 15px;letter-spacing: 1px;padding: 10px 20px;border-top-left-radius: 5px;border-top-right-radius: 5px;color: #feaf2e;border: 4px solid #feaf2e;">FAQs
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent" style="background: #fff;border-radius: 10px;padding: 2%;margin: 0% 2%;padding-top: 4%;">
+                    <div class="tab-pane fade active show" id="pills-features" style="padding-left: 1rem !important;padding-right: 1rem !important;padding-top: 0.25rem !important;"
+                        role="tabpanel" aria-labelledby="pills-features-tab">
+                        <div class="bg-white" style="border-radius: 10px;margin-top:30px;padding: 3rem !important;">
+                            <div class="oe_row oe_spaced">
+                                <div class="oe_span12">
+                                    <h3 class="mb16">Primary Features</h3>
+                                    <ul style="padding-left: 0;list-style: none;">
+                                        <li style="font-size:18px;"><i class="fa fa-dot-circle-o"></i>
+                                            Create multiple split payments of invoices with easy interface.</li><br />
+                                        <li style="font-size:18px;"><i class="fa fa-dot-circle-o"></i>
+                                            Multiple payments for invoices at single click.</li><br />
+                                        <li style="font-size:18px;"><i class="fa fa-dot-circle-o"></i>
+                                            Choose different payment methods in single payment.</li><br />
+                                        
+                                        <li style="font-size:18px;"><i class="fa fa-dot-circle-o"></i>
+                                            Supports Odoo Community as well as Enterprise versions.</li><br />
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-screenshots" style="padding-left: 1rem !important;padding-right: 1rem !important;padding-top: 0.25rem !important;"
+                        role="tabpanel" aria-labelledby="pills-screenshots-tab">
+                        <section class="oe_container oe_dark">
+                            <div class="oe_row oe_spaced">
+                                <div class='oe_span12'>
+                                    <div class="bc-span6 img-content">
+                                        <h4 class="screenshot_title">
+                                            In invoice screen, click on the "Register Payment" for make payment as default.<span class="caret"
+                                                style="position: absolute;bottom: -11px;left: 18px;border-width: 12px;border-top-color: #c98026;"></span></h4><br>
+                                    </div>
+                                    <img class="img-border img-responsive thumbnail" src="1.png" style="width:100%" />
+                                </div>
+                            </div>
+                            <br /><br />
+                            <div class="oe_row oe_spaced">
+                                <div class='oe_span12'>
+                                    <div class="bc-span6 img-content">
+                                        <h4 class="screenshot_title">Select multiple journal and split total amount between all journal.<span
+                                                class="caret" style="position: absolute;bottom: -11px;left: 18px;border-width: 12px;border-top-color: #c98026;"></span></h4><br>
+                                    </div>
+
+                                    <img class="img-border img-responsive thumbnail" src="2.png" style="width:100%;height: 70%;" />
+                                </div>
+                            </div>
+                            <br /><br />
+                            <div class="oe_row oe_spaced">
+                                <div class='oe_span12'>
+                                    <div class="bc-span6 img-content">
+                                        <h4 class="screenshot_title">You can choose to keep open different amount or make invoice done with different as write-off.<span
+                                                class="caret" style="position: absolute;bottom: -11px;left: 18px;border-width: 12px;border-top-color: #c98026;"></span></h4><br>
+                                    </div>
+
+                                    <img class="img-border img-responsive thumbnail" src="3.png" style="width:100%;height: 70%;" />
+                                </div>
+                            </div>
+                            <br /><br />
+                            <div class="oe_row oe_spaced">
+                                <div class='oe_span12'>
+                                    <div class="bc-span6 img-content">
+                                        <h4 class="screenshot_title">Just one click and all done.
+                                            <span
+                                                class="caret" style="position: absolute;bottom: -11px;left: 18px;border-width: 12px;border-top-color: #c98026;"></span></h4><br>
+                                    </div>
+
+                                    <img class="img-border img-responsive thumbnail" src="4.png" style="width:100%;height: 70%;" />
+                                </div>
+                            </div>
+                            <div class="oe_row oe_spaced">
+                                <div class='oe_span12'>
+                                    <div class="bc-span6 img-content">
+                                        <h4 class="screenshot_title">Here is related accounting entry, how it looks!
+                                            <span
+                                                class="caret" style="position: absolute;bottom: -11px;left: 18px;border-width: 12px;border-top-color: #c98026;"></span></h4><br>
+                                    </div>
+
+                                    <img class="img-border img-responsive thumbnail" src="5.png" style="width:100%;height: 70%;" />
+                                </div>
+                            </div>
+                            <br /><br />
+                        </section>
+                    </div>
+                   <!--  <div class="tab-pane fade" id="pills-config" style="padding-left: 1rem !important;padding-right: 1rem !important;padding-top: 0.25rem !important;"
+                        role="tabpanel" aria-labelledby="pills-config-tab">
+                        <div class="tab-pane">
+                            <section class="oe_container oe_dark">
+                                <div class="oe_row oe_spaced">
+                                    <div class='oe_span12'>
+                                        <h2 class="mb16" style="color:red"> </h2>
+                                        <h4 style="margin: 0;font-size: 15px;padding: 15px;position: relative;"></h4>
+                                    </div>
+                                    <div class='oe_span12'>
+                                        <div class="bc-span6 img-content">
+                                            <h4 style="margin: 0;font-size: 15px;padding: 15px;position: relative;">
+                                               </h4><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div> -->
+                                   <!-- FAQ -->
+                    <div class="tab-pane fade" id="pills-faq" style="padding-left: 1rem !important;padding-right: 1rem !important;padding-top: 0.25rem !important;"
+                        role="tabpanel" aria-labelledby="pills-faq-tab">
+                        <section class="oe_container">
+                            <div class="s_faq mt32 mb32" style="background-color: transparent !important;">
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel-group" style="border: 1px solid #ddd;border-radius: 10px;margin-bottom: 20px;">
+                                        <div class="panel panel-default" style="box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);padding: 15px 15px;border-radius: 10px;">
+                                            <div class="panel-heading mt0" style="border:1px solid transparent !important">
+                                                <h4 class="panel-title" style="margin: 0;">
+                                                    <a class="collapsed" style="color: #000;font-size: 20px;font-weight: 500;font-family: Roboto;"
+                                                        data-toggle="collapse" href="#collapse2" aria-expanded="false">
+                                                        <span class="panelcontent" style="padding: 0% 2%;">
+                                                           Is this app compatible with Odoo Enterprise?
+                                                        </span>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse2" class="panel-collapse mt16 collapse">
+                                                <div>
+                                                    <p class="mb32" style="height: auto;padding-left: 3%;margin-left: 2%;font-family: Roboto;">
+                                                       Yes, our app works with Odoo Enterprise as well as Community.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-group" style="border: 1px solid #ddd;border-radius: 10px;margin-bottom: 20px;">
+                                        <div class="panel panel-default" style="box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);padding: 15px 15px;border-radius: 10px;">
+                                            <div class="panel-heading mt0" style="border:1px solid transparent !important">
+                                                <h4 class="panel-title" style="margin: 0;">
+                                                    <a class="collapsed" style="color: #000;font-size: 20px;font-weight: 500;font-family: Roboto;"
+                                                        data-toggle="collapse" href="#collapse1" aria-expanded="false">
+                                                        <span class="panelcontent" style="padding: 0% 2%;">Need some customization in this app, whom to contact?
+                                                        </span>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse1" class="panel-collapse collapse mt16">
+                                                <div>
+                                                    <p class="mb32" style="height: auto;padding-left: 3%;margin-left: 2%;font-family: Roboto;">
+                                                       Please drop email at info@sneptech.com or raise a ticket through Odoo store itself.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-group" style="border: 1px solid #ddd;border-radius: 10px;margin-bottom: 20px;">
+                                        <div class="panel panel-default" style="box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);padding: 15px 15px;border-radius: 10px;">
+                                            <div class="panel-heading mt0" style="border:1px solid transparent !important">
+                                                <h4 class="panel-title" style="margin: 0;">
+                                                    <a class="collapsed" style="color: #000;font-size: 20px;font-weight: 500;font-family: Roboto;"
+                                                        data-toggle="collapse" href="#collapse6" aria-expanded="false">
+                                                        <span class="panelcontent" style="padding: 0% 2%;">
+                                                            Do you provide any free support?
+                                                        </span>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse6" class="panel-collapse collapse mt16">
+                                                <div>
+                                                    <p class="mb32" style="height: auto;padding-left: 3%;margin-left: 2%;font-family: Roboto;">
+                                                        Yes, we do provide free support for 90 days for any queries or any bug/issue fixing.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-group" style="border: 1px solid #ddd;border-radius: 10px;margin-bottom: 20px;">
+                                        <div class="panel panel-default" style="box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);padding: 15px 15px;border-radius: 10px;">
+                                            <div class="panel-heading mt0" style="border:1px solid transparent !important">
+                                                <h4 class="panel-title" style="margin: 0;">
+                                                    <a class="collapsed" style="color: #000;font-size: 20px;font-weight: 500;font-family: Roboto;"
+                                                        data-toggle="collapse" href="#collapse5" aria-expanded="false">
+                                                        <span class="panelcontent" style="padding: 0% 2%;">
+                                                            What is Support Policy of this Module ?
+                                                        </span>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse5" class="panel-collapse collapse mt16">
+                                                <div>
+                                                    <p class="mb32" style="height: auto;padding-left: 3%;margin-left: 2%;font-family: Roboto;">
+                                                        In case of if any bug raised in our listed features of this module, we're committed to provide support free of cost. You will need to provide us server ssh access or database access in order to solve the issue. We provide paid support for special requirements like Module Installation, Configuration & Customization according to your need.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-group" style="border: 1px solid #ddd;border-radius: 10px;margin-bottom: 20px;">
+                                        <div class="panel panel-default" style="box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);padding: 15px 15px;border-radius: 10px;">
+                                            <div class="panel-heading mt0" style="border:1px solid transparent !important">
+                                                <h4 class="panel-title" style="margin: 0;">
+                                                    <a class="collapsed" style="color: #000;font-size: 20px;font-weight: 500;font-family: Roboto;"
+                                                        data-toggle="collapse" href="#collapse3" aria-expanded="false">
+                                                        <span class="panelcontent" style="padding: 0% 2%;">Can I Resell this Module ?
+                                                        </span>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse3" class="panel-collapse collapse mt16">
+                                                <div>
+                                                    <p class="mb32" style="height: auto;padding-left: 3%;margin-left: 2%;font-family: Roboto;">
+                                                        No, Purchased Module is for your commercial use only. You may not include the original Module including Source Code, Logo, Images etc.. in any distributed end products. Sneptech owns full Copyright of Source Code, Logo and Images which are used in this Module.
+
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-group" style="border: 1px solid #ddd;border-radius: 10px;margin-bottom: 20px;">
+                                        <div class="panel panel-default" style="box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);padding: 15px 15px;border-radius: 10px;">
+                                            <div class="panel-heading mt0" style="border:1px solid transparent !important">
+                                                <h4 class="panel-title" style="margin: 0;">
+                                                    <a class="collapsed" style="color: #000;font-size: 20px;font-weight: 500;font-family: Roboto;"
+                                                        data-toggle="collapse" href="#collapse4" aria-expanded="false">
+                                                        <span class="panelcontent" style="padding: 0% 2%;">I want to Customise the Module according to my need, Can I do that ?
+                                                        </span>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse4" class="panel-collapse collapse mt16">
+                                                <div>
+                                                    <p class="mb32" style="height: auto;padding-left: 3%;margin-left: 2%;font-family: Roboto;">
+Yes, Module is fully Customisable according to your business need. You can Customise module based on your requirement. However you can hire a Sneptech Expert to customize your Bussiness need and let you focus on other important parts of your business.
+
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-group" style="border: 1px solid #ddd;border-radius: 10px;margin-bottom: 20px;">
+                                        <div class="panel panel-default" style="box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);padding: 15px 15px;border-radius: 10px;">
+                                            <div class="panel-heading mt0" style="border:1px solid transparent !important">
+                                                <h4 class="panel-title" style="margin: 0;">
+                                                    <a class="collapsed" style="color: #000;font-size: 20px;font-weight: 500;font-family: Roboto;"
+                                                        data-toggle="collapse" href="#collapse8" aria-expanded="false">
+                                                        <span class="panelcontent" style="padding: 0% 2%;">Do you Provide Odoo eCommerce Implementation Services too ?
+
+                                                        </span>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse8" class="panel-collapse collapse mt16">
+                                                <div>
+                                                    <p class="mb32" style="height: auto;padding-left: 3%;margin-left: 2%;font-family: Roboto;">Yes, Our team is build up of several senior Odoo experts, eCommerce analysts and web designers holding the experience of many years in Odoo, and thanks to this we can offer you professional services at the highest level. Whether it is setting up the products with striking images and content, configuring payment methods, designing streamlined landing pages, optimizing site speed for lightning experience,or offering digital marketing services, our specialists are right here to serve you with supreme expertise in various areas.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- </section> -->
+        <!-- Popular Apps -->
+        <section class="oe_container">
+            <div class="row py-sm-5 px-1">
+                <h2 class="w-100 text-center mb-3" style="color:#123246;font-family:segoeuib;text-align:center;"><span
+                        style="color: #f57303">S</span>uggested
+                    <span style="color: #f57303">A</span>pps</h2>
+                <div class="col-md-4 mt-4 mt16">
+                    <a href="https://apps.odoo.com/apps/modules/12.0/product_variant_pricelist_spt/" class="d-block"
+                        target="_blank" style="text-decoration: none;">
+                        <div class="card" style="box-shadow: 0px 2px 9px 4px #d0cecb; border-radius: 10px;border: none;">
+                            <img class="card-img-top" src="apps/pro_variant.png" alt="Product Variants Pricelist" style="border-top-left-radius: 10px;    border-top-right-radius: 10px;width: 100%;">
+                            <div class="card-body text-center" style="-webkit-box-flex: 1;-webkit-flex: 1 1 auto;flex: 1 1 auto;padding: 0.9375rem;">
+                                <h5 class="card-text m-0 p-o" style="color: #424040;white-space: nowrap;width: 100%;overflow: hidden;text-overflow: ellipsis;">Product
+                                    Variants Pricelist
+                                </h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 mt-4 mt16">
+                    <a href="https://apps.odoo.com/apps/modules/12.0/website_product_filter_mobile_spt/" class="d-block"
+                        target="_blank" style="text-decoration: none;">
+                        <div class="card" style="box-shadow: 0px 2px 9px 4px #d0cecb; border-radius: 10px;border: none;">
+                            <img class="card-img-top" src="apps/product_filter.png" alt="Website Product Filter Display In Mobile"
+                                style="border-top-left-radius: 10px;    border-top-right-radius: 10px;width: 100%;">
+                            <div class="card-body text-center" style="-webkit-box-flex: 1;-webkit-flex: 1 1 auto;flex: 1 1 auto;padding: 0.9375rem;">
+                                <h5 class="card-text m-0 p-o" style="color: #424040;white-space: nowrap;width: 100%;overflow: hidden;text-overflow: ellipsis;">Website
+                                    Product Filter Display In Mobile</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 mt-4 mt16">
+                    <a href="https://apps.odoo.com/apps/modules/12.0/product_social_sharing_spt/" class="d-block"
+                        target="_blank" style="text-decoration: none;">
+                        <div class="card" style="box-shadow: 0px 2px 9px 4px #d0cecb; border-radius: 10px;border: none;">
+                            <img class="card-img-top" src="apps/social_sharing.png" alt="Website Product Share On Social Media"
+                                style="border-top-left-radius: 10px;    border-top-right-radius: 10px;width: 100%;">
+                            <div class="card-body text-center" style="-webkit-box-flex: 1;-webkit-flex: 1 1 auto;flex: 1 1 auto;padding: 0.9375rem;">
+                                <h5 class="card-text m-0 p-o" style="color: #424040;white-space: nowrap;width: 100%;overflow: hidden;text-overflow: ellipsis;">Website
+                                    Product Share On Social Media</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 mt-4 mt16">
+                    <a href="https://apps.odoo.com/apps/modules/11.0/website_send_email_contact_form_spt/" class="d-block"
+                        target="_blank" style="text-decoration: none;">
+                        <div class="card" style="box-shadow: 0px 2px 9px 4px #d0cecb; border-radius: 10px;border: none;">
+                            <img class="card-img-top" src="apps/contactus_form.png" alt="Website Contact Us Form With Email"
+                                style="border-top-left-radius: 10px;    border-top-right-radius: 10px;width: 100%;">
+                            <div class="card-body text-center" style="-webkit-box-flex: 1;-webkit-flex: 1 1 auto;flex: 1 1 auto;padding: 0.9375rem;">
+                                <h5 class="card-text m-0 p-o" style="color: #424040;white-space: nowrap;width: 100%;overflow: hidden;text-overflow: ellipsis;">Website
+                                    Contact Us Form With Email
+
+                                </h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 mt-4 mt16">
+                    <a href="https://apps.odoo.com/apps/modules/11.0/customize_footer_theme_spt/" class="d-block"
+                        target="_blank" style="text-decoration: none;">
+                        <div class="card" style="box-shadow: 0px 2px 9px 4px #d0cecb; border-radius: 10px;border: none;">
+                            <img class="card-img-top" src="apps/customize_footer.png" alt="Customize website footer"
+                                style="border-top-left-radius: 10px;    border-top-right-radius: 10px;width: 100%;">
+                            <div class="card-body text-center" style="-webkit-box-flex: 1;-webkit-flex: 1 1 auto;flex: 1 1 auto;padding: 0.9375rem;">
+                                <h5 class="card-text m-0 p-o" style="color: #424040;white-space: nowrap;width: 100%;overflow: hidden;text-overflow: ellipsis;">Customize
+                                    website footer</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 mt-4 mt16">
+                    <a href="https://apps.odoo.com/apps/modules/12.0/website_uom_select_suggetion_spt/" class="d-block"
+                        target="_blank" style="text-decoration: none;">
+                        <div class="card" style="box-shadow: 0px 2px 9px 4px #d0cecb; border-radius: 10px;border: none;">
+                            <img class="card-img-top" src="apps/uom.png" alt="Select Product UOM in website" style="border-top-left-radius: 10px;    border-top-right-radius: 10px;width: 100%;">
+                            <div class="card-body text-center" style="-webkit-box-flex: 1;-webkit-flex: 1 1 auto;flex: 1 1 auto;padding: 0.9375rem;">
+                                <h5 class="card-text m-0 p-o" style="color: #424040;white-space: nowrap;width: 100%;overflow: hidden;text-overflow: ellipsis;">Select
+                                    Product UOM in website</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+        <section class="oe_container bg-gray-lighter mt92" style="padding: 5px;">
+            <div class="oe_row col-md-12 col-sm-12">
+                <div class="text-center">
+                    <h2 style="color:#123246;font-family:segoeuib"><span style="color: #f57303">W</span>hat <span style="color: #f57303">W</span>e
+                        <span style="color: #f57303">O</span>ffer</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-sm-2 text-center">
+                    <img src="footer/icon-1.png">
+                    <h6 style="margin-top: -10px;font-size: 9px;color:#123246;">Odoo Customization</h6>
+                </div>
+                <div class="col-md-2 col-sm-2 text-center">
+                    <img src="footer/icon-2.png">
+                    <h6 style="margin-top: -1px;font-size: 9px;color:#123246;">Odoo Code Migration</h6>
+                </div>
+                <div class="col-md-2 col-sm-2 text-center">
+                    <img src="footer/icon-3.png">
+                    <h6 style="margin-top: -1px;font-size: 9px;color:#123246;">Responsive Design</h6>
+                </div>
+                <div class="col-md-2 col-sm-2 text-center">
+                    <img src="footer/icon-4.png">
+                    <h6 style="margin-top: -1px;font-size: 9px;color:#123246;">Odoo Configuration</h6>
+                </div>
+                <div class="col-md-2 col-sm-2 text-center">
+                    <img src="footer/icon-5.png">
+                    <h6 style="margin-top: -1px;font-size: 9px;color:#123246;">Odoo Web Development</h6>
+                </div>
+                <div class="col-md-2 col-sm-2 text-center">
+                    <img src="footer/icon-6.png">
+                    <h6 style="margin-top: -1px;font-size: 9px;color:#123246;">Odoo Themes</h6>
+                </div>
+            </div>
+        </section>
+        <section class="oe_container" style="background-image:url(website_sale_notify_spt/static/description/footer/footer.gif); background-repeat:no-repeat; background-size:100%;padding: 13% 0% 6% 0%;margin-top: 5%;">
+            <div class="oe_slogan" style="margin-top:10px !important;margin-bottom: 0px;">
+                <div>
+                    <a style="background: linear-gradient(to right, #F27E00, #F29500);padding: 16px 45px;text-transform: uppercase;text-align: center;box-shadow: 2px 1px 12px 3px #ece6e6;border-radius: 10px;color: #fff;font-weight: 700;border: none;"
+                        class="btn btn-primary btn-lg mt8" href="mailto:info@sneptech.com"><i class="fa fa-envelope"></i>
+                        Email us </a>
+                    <a style="background: linear-gradient(to right, #F27E00, #F29500);padding: 16px 45px;text-transform: uppercase;text-align: center;box-shadow: 2px 1px 12px 3px #ece6e6;border-radius: 10px;color: #fff;font-weight: 700;border: none;"
+                        class="btn btn-primary btn-lg mt8" href="https://www.sneptech.com/contactus"><i class="fa fa-phone"></i>
+                        Contact Us </a>
+                    <a style="background: linear-gradient(to right, #F27E00, #F29500);padding: 16px 45px;text-transform: uppercase;text-align: center;box-shadow: 2px 1px 12px 3px #ece6e6;border-radius: 10px;color: #fff;font-weight: 700;border: none;"
+                        class="btn btn-primary btn-lg mt8" href="mailto:info@sneptech.com"><i class="fa fa-check-square"></i>
+                        Request Customization </a>
+                </div>
+                <br>
+                <img src="footer/spt_logo.png" style="margin-bottom: 12px;margin-top: 20px;" class="center-block">
+                <div>
+                    <a href="https://twitter.com/sneptech" target="_blank"><i class="fa fa-2x fa-twitter" style="color:white;background: #00a0d1;width:35px;height: 35px;padding-top: 7px;font-size: 21px;margin-right: 6px;border-radius: 100%;"></i></a>
+                    <a href="https://www.linkedin.com/company/sneptech" target="_blank"><i class="fa fa-2x fa-linkedin"
+                            style="color:white;background: #31a3d6;width:35px;padding-left: 3px;height: 35px;padding-top: 7px;font-size: 21px;margin-right: 6px;border-radius: 100%;"></i></a>
+                    <a href="https://www.facebook.com/sneptech" target="_blank"><i class="fa fa-2x fa-facebook" style="color:white;background: #3b5998;width:35px; ;height: 35px;padding-top: 7px;font-size: 21px;margin-right: 6px;border-radius: 100%;"></i></a>
+                </div>
+                <br/><br/>
+                <p style="color:red;"><i>*By using our Addons/themes you are agreeing with our <a href="https://www.sneptech.com/terms-of-service">Terms of Service</a>. Also read our <a href="https://www.sneptech.com/privacy-policy">privacy policy</a> for more info.</i></p>      </div>
+            </div>
+        </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_amount_spt,access.amount.spt,model_amount_spt,,1,1,1,1
+access_payment_split_spt,access.payment.split.spt,model_payment_split_spt,,1,1,1,1
+
+

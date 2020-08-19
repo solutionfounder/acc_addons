@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="payment_split_form_view_spt" model="ir.ui.view">
+            <field name="name">payment.split.form.view.spt</field>
+            <field name="model">payment.split.spt</field>
+            <field name="arch" type="xml">
+                <form string="Payment Split">
+
+                    <sheet>
+                        <field name="partner_id" invisible="1"/>
+                        <field name="move_ids" invisible="1"/>
+                        <label for="amount_ids"/>
+                        <field name="amount_ids">
+                            <tree string="Payment Amount" editable="bottom">
+                                <field name="currency_id" invisible="1"/>
+                                <field name="journal_id" required="1"/>
+                                <field name="amount" required="1"/>
+                            </tree>
+                        </field>
+                        <group attrs="{'invisible': [('payment_difference', '=', 0.0)]}">
+                            <group>
+                                <label for="payment_difference"/>
+                                <div>
+                                    <field name="payment_difference"/>
+                                    <field name="payment_difference_handling" widget="radio"/>
+                                    <div attrs="{'invisible': [('payment_difference_handling','=','open')]}">
+                                        <label for="writeoff_account_id" class="oe_edit_only" string="Post Difference In"/>
+                                        <field name="writeoff_account_id" string="Post Difference In" attrs="{'required': [('payment_difference_handling', '=', 'reconcile')]}"/>
+                                        <label for="writeoff_label" class="oe_edit_only" string="Label"/>
+                                        <field name="writeoff_label" attrs="{'required': [('payment_difference_handling', '=', 'reconcile')]}"/>
+                                    </div>
+
+                                </div>
+                            </group>
+                        </group>
+
+                    </sheet>
+                    <footer>
+                        <button name="payment_post" string="Validate" type="object" class="btn-primary" />
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="payment_split_tree_view_spt" model="ir.ui.view">
+            <field name="name">payment.split.tree.view.spt</field>
+            <field name="model">payment.split.spt</field>
+            <field name="arch" type="xml">
+                <tree string="Payment Split">
+                    <field name="amount_ids"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- /////////////////////////////////////////////////// -->
+        <record id="action_payment_split_spt" model="ir.actions.act_window">
+            <field name="name">Payment Split</field>
+            <field name="res_model">payment.split.spt</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+        <!-- ////////////////////////////////////////////////////////////// -->
+    </data>
+</odoo>
